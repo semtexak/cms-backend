@@ -22,17 +22,18 @@ const swaggerOptions = {
     swaggerDefinition: {
         info: {
             title: "Content Management System Api"
-        }
+        },
+        basePath: '/api/v1'
     },
     apis: ['./src/routes/*.js', './src/component/**/*.model.js']
 };
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 // Routing
-router.use('/categories', categoryRouter);
-router.use('/posts', postRouter);
-router.use('/users', userRouter);
-router.use('/auth', authRouter);
+router.use('/api/v1/categories', categoryRouter);
+router.use('/api/v1/posts', postRouter);
+router.use('/api/v1/users', userRouter);
+router.use('/api/v1/auth', authRouter);
 router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use(router);
 
