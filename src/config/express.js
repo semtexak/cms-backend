@@ -7,6 +7,7 @@ const authRouter = require('./../routes/auth.route');
 const categoryRouter = require('./../routes/category.route');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const path = require('path')
 
 const app = express();
 const router = express.Router();
@@ -15,8 +16,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.json());
 app.use(cors());
 
-// app.use(express.static(__dirname + '/dist/application'));
-// app.get('/*', (req: any, res: any) => res.sendFile(__dirname + '/dist/application/' + 'index.html'));
+// console.log(path.join(__dirname, '../../../'));
+// app.use(express.static(path.join(__dirname, '../../', '/dist/application')));
+// app.get('/*', (req, res) => res.sendFile(path.join(__dirname, '../../', '/dist/application/', 'index.html')));
 
 const swaggerOptions = {
     swaggerDefinition: {

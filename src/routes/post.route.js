@@ -19,7 +19,7 @@ const postService = require('../component/post/post.service');
  *                  $ref: '#/definitions/Post'
  */
 router.get('/', async (req, res) => {
-    res.send(await postService.getPosts());
+    res.send(await postService.getPosts(req.query.filter, {page: +req.query.page || 1, limit: +req.query.limit || 10, sort: req.query.sort || null}));
 });
 
 /**

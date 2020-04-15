@@ -24,6 +24,7 @@ let mongoose = require('mongoose');
 let categorySchema = mongoose.Schema({
 	name: String,
 	slug: { type: String, unique: true },
+	color: String,
 	isHidden: Boolean
 }, { collection: 'categories' });
 

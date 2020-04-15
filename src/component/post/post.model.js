@@ -54,16 +54,18 @@ let postSchema = mongoose.Schema({
 		}
 	],
 	tags: [String],
-	image: String,
+	img: String,
 	createdAt: Number,
 	updatedAt: Number,
 	slug: { type: String, unique: true },
 }, { collection: 'posts' });
 
 
-postSchema.pre('save', function() {
+postSchema.pre('save', function(next) {
 	const {id} = this;
-	this.set({ slug: slugify(`${id.slice(Math.max(id.length - 7, 0))} ${this.title}`), createdAt: new Date()});
+	console.log('SAVE');
+	this.set({ slug: slugify(`${this.title} ${id.slice(Math.max(id.length - 7, 0))}`), createdAt: new Date()});
+	next();
 });
 
 postSchema.pre('updateOne', function() {
