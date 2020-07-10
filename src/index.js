@@ -4,7 +4,7 @@ const database = require('./config/database');
 
 database.connect();
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8086;
 
 const server = http.createServer(app);
 
